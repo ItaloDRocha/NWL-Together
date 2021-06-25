@@ -13,7 +13,7 @@ class Tag {
   @PrimaryColumn()
   readonly id: string;
 
-  @PrimaryColumn()
+  @Column()
   name: string;
 
   @CreateDateColumn()

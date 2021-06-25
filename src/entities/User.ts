@@ -16,10 +16,13 @@ import { v4 as uuid } from "uuid"
     @Column()
     admin: boolean;
 
+    @Column()
+    password: string;
+
     @CreateDateColumn()
     created_at : Date;
 
-    @CreateDateColumn()
+    @UpdateDateColumn()
     updated_at: Date;
 
     constructor() {
