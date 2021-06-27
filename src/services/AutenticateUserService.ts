@@ -16,10 +16,10 @@ interface IAuthenticateRequest {
 class AuthenticateUserService{
 
     async execute({email,password}: IAuthenticateRequest){
-        const usersRepository = getCustomRepository(UsersRepositories)
+        const usersRepositories = getCustomRepository(UsersRepositories)
 
         //Verificar se email existe
-        const user = await usersRepository.findOne({
+        const user = await usersRepositories.findOne({
             email
         });
 
@@ -35,12 +35,15 @@ class AuthenticateUserService{
         }
 
         //Gerar token
-        const token = sign({
-            email: user.email
-        },"chavesecretateste12345",{
-            subject: user.id,
-            expiresIn: "1d",
-        }
+        const token = sign(
+            {
+                email: user.email
+            },
+            "5fd8cdb1f3eab35bcb796f92d35b3817",
+            {
+                subject: user.id,
+                expiresIn: "1d",
+            }
         );
 
         return token;
