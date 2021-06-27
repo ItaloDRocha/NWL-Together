@@ -14,14 +14,14 @@ class Compliment{
 
     @JoinColumn({name: "user_sender"})
     @ManyToOne(() => User)
-    user_Sender: User
+    userSender: User
 
     @Column()
     user_receiver: string;
 
     @JoinColumn({name: "user_receiver"})
     @ManyToOne(() => User)
-    user_Receiver: User
+    userReceiver: User
 
 
     @Column()
